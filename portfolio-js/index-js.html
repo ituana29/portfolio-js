@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Portfolio-js</title>
+
+    <link rel="touch-icon" sizes="180x180" href="assets/img/touch-icon.png">
+
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        body{
+          background-image: url('assets/img/backgroundPrincipal2.png');
+        }
+        ul{
+          float: right;
+          background-color: white;
+        }
+        li{
+          display: inline;
+          margin-right: 8px;
+          position: relative;
+          padding: 15px 0;
+          background-color: white;
+        }
+        li a:after{
+          background: none transparent;
+          bottom: 0;
+          content: "";
+          display: block;
+          height: 2px;
+          left: 50%;
+          position: absolute;
+          background: #212121;
+          transition: width 0.3s ease 0s;
+          width: 0;
+        }
+        a:hover:after{
+          width: 100%;
+          left: 0;
+        }
+        @media screen and (max-height: 300px) {
+        	ul {
+        		margin-top: 40px;
+        	}
+        }
+        #about{
+          text-align: center;
+          margin-left: 200px;
+          margin-right: 200px;
+        }
+        .btn{
+          background-color: #f3e036;
+          border: none;
+          color: white;
+          padding: 15px 15px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          width: 150px;
+          height: 70px;
+        }
+        #explore_s{
+          padding-right: 270px;
+        }
+        #contactbtn{
+          background-color: #212121;
+          width: 120px;
+          height: 45px;
+          display: inline-block;
+          text-align: center;
+          padding: 5px 5px;
+          transition: box-shadow .3s;
+        }
+        /* #contactbtn:hover {
+          box-shadow: 0 0 11px rgba(50,50,50,.5);
+        } */
+        #explorebtn{
+          background-color: white;
+          color: #212121;
+          border: 1px solid #212121;
+          width: 200px;
+          height: 43px;
+          display: inline-block;
+          text-align: center;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          transition: box-shadow .3s;
+        }
+        /*  #explorebtn:hover {
+          box-shadow: 0 0 11px rgba(50,50,50,.5);
+        } */
+        .navbar a:hover{
+          color: white;
+        }
+        #menu{
+          text-decoration: none;
+          color: black;
+          text-transform: uppercase;
+          padding: 15px;
+          transition: .5s;
+        }
+        #banners{
+          text-align: center;
+        }
+        #banner_i{
+          width: 25%;
+          display: inline-block;
+        }
+        #portfolio{
+          text-align: center;
+          vertical-align: top;
+        }
+        #skills_div{
+          text-align: center;
+        }
+        #skills_s{
+          width: 25%;
+          display: inline-block;
+        }
+        #myProgress{
+            width:100%;
+            background-color: #dfdfdf;
+        }
+        #myBar1, #myBar2, #myBar3, #myBar4, #myBar5, #myBar6{
+            width:1%;
+            height:15px;
+            background-color:#f3e036;
+        }
+        #p_desc{
+          font-size: 25px;
+        }
+        .container_design{
+          margin: 100px;
+          box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2), 0 10px 15px 0 rgba(0, 0, 0, 0.19);
+          padding-top:25px;
+          padding-bottom: 70px;
+        }
+        .portfolio-item{
+          width:335px;
+          height:280px;
+        }
+        .portfolio-img{
+          width:335px;
+          height:280px;
+        }
+        .container_counter{
+          position: relative;
+          text-align: center;
+          color: blue;
+          padding-top: 0px;
+          margin-top: 0px;
+          background-image: linear-gradient(#747474, #f3f3f3);
+        }
+        .counter_div{
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: inline-block;
+          font-size: 15px;
+          color: white;
+        }
+
+        .container_imagine{
+          position: relative;
+        }
+        .imagine {
+          opacity: 1;
+          display: block;
+          width: 100%;
+          height: auto;
+          transition: .5s ease;
+          backface-visibility: hidden;
+        }
+
+        .middle {
+          transition: .5s ease;
+          opacity: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          text-align: center;
+        }
+        .container_imagine:hover .imagine {
+          opacity: 0.3;
+        }
+        .container_imagine:hover .middle {
+          opacity: 1;
+        }
+        .text {
+          background-color: #04AA6D;
+          color: black;
+          font-size: 16px;
+          padding: 15px 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <header id="masthead" class="site-header" style="background-color: white;">
+        <nav class="navbar_div">
+            <div class="container">
+                <div>
+                    <img style="padding-left: 50px;" src="assets/img/logo.png" alt="logo">
+                </div>
+                <div class="portfolio-menu" style="margin-right: 100px; background-color: white;">
+                    <ul class="navbar">
+                        <li ><a href="#hero" id="menu">Home</a></li>
+                        <li ><a href="#about" id="menu">About</a></li>
+                        <li><a href="#service" id="menu">Service</a></li>
+                        <li><a href="#portfolio" id="menu">Portfolio</a></li>
+                        <li><a href="#contact" id="menu">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="hero" class="hero">
+        <div class="container">
+            <div class="row">
+                <div style="padding-left: 95px">
+                </div>
+
+                <div class="col-md-6" style="padding-right: 50px; padding-bottom: 120px">
+                    <img src="" alt="">
+                    <div id="explore_s">
+                        <div id="contactbtn">
+                            <a href="#contact" style="color: white; text-decoration: none; text-transform: uppercase;">Contact</a>
+                        </div>
+                        <div id="explorebtn">
+                            <a href="#portfolio" style="color: #212121; text-decoration: none; text-transform: uppercase;">Explore more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main" class="site-main">
+        <id id="about">
+            <div>
+                <div>
+                    <div style="text-align: center;">
+                        <h2 style="text-transform: uppercase; font-size: 30px;">About</h2>
+                        <img src="assets/img/lines.svg" alt="lines">
+                        <p id="about">Hello! I'm Bianca, a strongly enthusiastic human willing to learn new things. I am a person that loves design and has an eye for details. I have a three months experience in the visual design area and I am still working on different projects. If you like my work, please let me know!</p>
+                        <button onclick="downloadFile('assets/img/AnasResume.pdf')" class="btn">View my cv</button> <br><br><br>
+                    </div>
+                </div>
+            </div>
+        </id>
+
+        <id >
+            <div class="container">
+                <div style="text-align: center;">
+                    <h3 style="text-transform: uppercase; font-size: 30px;">Skills</h3>
+                    <img src="assets/img/lines.svg" alt="lines">
+                </div>
+                <div id="skills_div" class="row">
+                    <div>
+                        <div id="skills_s" class="skill">
+                            <h4>Html</h4>
+                            <div class="progress" id="myProgress">
+                                <div id="myBar1" class="progress-bar" ></div>
+                            </div> <br>
+                            <button onclick="misca(80,'myBar1')">View here</button>
+                        </div>
+
+                        <div id="skills_s" class="skill">
+                            <h4>CSS</h4>
+                            <div class="progress" id="myProgress">
+                                <div id="myBar2" style="background-color: #f3e036" class="progress-bar" ></div>
+                            </div> <br>
+                            <button onclick="misca(75,'myBar2')">View here</button>
+                        </div>
+
+                        <div id="skills_s" class="skill">
+                            <h4>JavaScript</h4>
+                            <div class="progress" id="myProgress">
+                                <div id="myBar3" style="background-color: #f3e036" class="progress-bar"></div>
+                            </div> <br>
+                            <button onclick="misca(75,'myBar3')">View here</button>
+                        </div>
+                    </div>
+                    <div >
+                        <div id="skills_s" class="skill">
+                            <h4>Adobe Photoshop</h4>
+                            <div id="myProgress" class="progress">
+                                <div id="myBar4" style="background-color: #f3e036" class="progress-bar"></div>
+                            </div> <br>
+                            <button onclick="misca(82,'myBar4')">View here</button>
+                        </div>
+                        <div id="skills_s" class="skill">
+                            <h4>Adobe Illustrator</h4>
+                            <div id="myProgress" class="progress">
+                                <div id="myBar5" style="background-color: #f3e036" class="progress-bar"></div>
+                            </div> <br>
+                            <button onclick="misca(70,'myBar5')">View here</button>
+                        </div>
+                        <div id="skills_s" class="skill">
+                            <h4>CorelDraw</h4>
+                            <div id="myProgress" class="progress">
+                                <div id="myBar6" style="background-color: #f3e036" class="progress-bar"></div>
+                            </div> <br>
+                            <button onclick="misca(97,'myBar6')">View here</button>
+                        </div> <br><br>
+                    </div>
+                </div>
+            </div>
+        </id>
+
+        <section id="service">
+            <div class="container_design">
+                <div class="row" >
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 30px; text-transform: uppercase;">What i do</h3>
+                        <img src="assets/img/lines.svg" class="img-lines" alt="lines">
+                    </div>
+                    <div>
+                        <div style="text-align: center;" class="service">
+                            <img src="assets/img/front-end.svg" alt="Front End Developer">
+                            <h4>Visual Design</h4>
+                            <p>As a visual designer, I have experience in Adobe Photoshop, CorelDraw and Adobe Illustrator.</p>
+                        </div>
+                        <div style="text-align: center;" class="service">
+                            <img src="assets/img/front-end.svg" alt="Front End Developer">
+                            <h4>Web Design</h4>
+                            <p>I have experience in HTML5 and CSS3 techniques, working with Bootstrap or more advanced javascript MVC frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="portfolio">
+            <div>
+                <div id="banners" >
+                    <h3 style="font-size: 30px;">My recent Works</h3>
+                    <img src="assets/img/lines.svg" class="img-lines" alt="lines">
+                </div>
+                <div class="row" >
+                    <div id="banner_i" style="margin-right: 2%;">
+                        <div class="container_imagine">
+                            <!-- <img id="imagine" onmouseover="setNewImage()" onmouseout="setOldImage()" src="assets/img/portfolio-1.jpg" class="imagine" alt=""> -->
+                            <img src="assets/img/portfolio-1_.jpg" class="imagine" alt="">
+                            <div class="middle">
+                                <div class="text">Banner</div>
+                            </div>
+                        </div>
+                        <a href="assets/img/portfolio-1.jpg" style="color:black;"> Click for full resolution </a> <br>
+                    </div> 
+                    <div id="banner_i" style="margin-right: 2%;">
+                        <div class="container_imagine">
+                            <img src="assets/img/portfolio-2_.jpg" class="imagine" alt="">
+                            <div class="middle">
+                                <div class="text">Banner</div>
+                            </div>
+                        </div>
+                        <a href="assets/img/portfolio-2.jpg" style="color:black;"> Click for full resolution </a><br>
+                    </div>
+                    <div id="banner_i">
+                        <div class="container_imagine">
+                            <img src="assets/img/portfolio-3.jpg" class="imagine" alt="">
+                            <div class="middle">
+                                <div class="text">Banner</div>
+                            </div>
+                        </div>
+                        <a href="assets/img/portfolio-3.jpg" style="color:black;"> Click for full resolution </a><br>
+                    </div>
+                    <div id="banner_i" style="margin-right: 2%;">
+                        <div class="container_imagine">
+                            <img src="assets/img/portfolio-4_.jpg" class="imagine" alt="">
+                            <div class="middle">
+                                <div class="text">Banner</div>
+                            </div>
+                        </div>
+                        <a href="assets/img/portfolio-4.jpg" style="color:black;"> Click for full resolution </a><br>
+                    </div>
+                    <div id="banner_i" style="margin-right: 2%;">
+                        <div class="container_imagine">
+                            <img src="assets/img/portfolio-5_.jpg" class="imagine" alt="">
+                            <div class="middle">
+                                <div class="text">Banner</div>
+                            </div>
+                        </div>
+                        <a href="petshop.html" style="color:black;"> Click to see the design </a><br>
+                    </div>
+                    <div id="banner_i">
+                        <div class="container_imagine">
+                            <img src="assets/img/portfolio-6_.jpg" class="imagine" alt="">
+                            <div class="middle">
+                                <div class="text">Banner Design</div>
+                            </div>
+                        </div>
+                        <a href="assets/img/portfolio-6_.jpg" style="color:black;"> Click for full resolution </a> <br>
+                    </div>
+                </div> <br> <br>
+            </div>
+        </div>
+
+        <section>
+            <div class="container_counter">
+              <img src="assets/img/services-bg.jpg"/>
+              <div class="counter_div">
+                  <div id="paragraf" style="font-size: 75px; color: white;">4</div>
+                  <h4>Months Internship Experience</h4><br>
+                  <button id="start-button"> View number </button>
+              </div>
+              <div class="counter_div">
+                  <div id="paragraf" style="font-size: 75px; color:white;">15</div>
+                  <h4>Projects Delivered</h4><br>
+                  <button id="start-button"> View number </button>
+              </div>
+            </div>
+        </section>
+
+        <section id="contact">
+          <div style="height: 220px; width: 100%;">
+            <div style="text-align: center;">
+                <h3 style="font-size: 30px;">Contact</h3>
+                <img src="assets/img/lines.svg" alt="lines">
+                <form>
+                    <div>
+                        <div style="display: inline-block; padding-left: auto; padding-right: 8%;">
+                            <p>Email: itu.bianca11@yahoo.com </p>
+                        </div>
+                        <div style="display: inline-block; padding-right: 8%;">
+                            <p>Gmail: anaitu1@gmail.com</p>
+                        </div>
+                        <div style="display: inline-block; padding-right: 8%;">
+                            <p><a href="https://github.com/ituana29" style="text-decoration: none; color: blue;">Github</a></p>
+                        </div>
+                        <div style="display: inline-block; padding-right: auto;">
+                            <p><a href="https://linkedin.com/in/bianca-itu-41518a19b/" style="text-decoration: none; color: blue;">LinkedIn</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </section>
+    </main>
+
+    <script>
+
+    //hover effect for buttons
+    $("#contactbtn").mouseover(function() {
+       $(this).css("box-shadow", "5px 5px 5px #555");
+    }).mouseleave(function(){
+      $(this).css("box-shadow", "0px 0px 0px #555");
+   });
+
+   $("#explorebtn").mouseover(function() {
+       $(this).css("box-shadow", "5px 5px 5px #555");
+    }).mouseleave(function(){
+      $(this).css("box-shadow", "0px 0px 0px #555");
+   });
+
+    //function for downloading CV
+    function downloadFile(url) {
+      const a = document.createElement('a')
+      a.href = url
+      a.download = url.split('/').pop()
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+    }
+
+    //progress bar
+    function misca(k,nume){
+        var elem = document.getElementById(nume);
+        var width = 1;
+        var id = setInterval(frame,5);
+        function frame(){
+            if(width>=k){
+                clearInterval(id);
+            }
+            else
+            {
+                width++;
+                elem.style.width=width+'%';
+            }
+        }
+    }
+
+    //counting function
+    $('#start-button').click(function(){
+      var c = new CountUp("paragraf",0,5);
+      c.start();
+    })
+
+    function setNewImage(){
+        document.getElementById("imagine").src="portfolio-1.png";
+    }
+    function setOldImage(){
+        document.getElementById("imagine").src="portfolio-1.jpg";
+    }
+
+    //navbar animation
+    $(document).ready(function() {
+        $(window).scroll(function() {
+          if($(this).scrollTop() > 500) {
+              $('.navbar_div').addClass('solid');
+          } else {
+              $('.navbar_div').removeClass('solid');
+          }
+        });
+    });
+    </script>
+</body>
+</html>
